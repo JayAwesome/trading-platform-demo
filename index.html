@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JAYAWESOME CRYPTO EXCHANGE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+
+  <h1>JAYAWESOME CRYPTO EXCHANGE</h1>
+
+  <div class="card">
+    <h2>Login</h2>
+    <input id="email" placeholder="Email">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <div class="card">
+    <h2>Balances</h2>
+    <p>Spot: $<span id="spot">1000</span></p>
+    <p>Futures: $<span id="futures">0</span></p>
+  </div>
+
+  <div class="card">
+    <h2>Deposit</h2>
+    <input id="depositAmount" type="number" placeholder="Amount">
+    <button onclick="deposit()">Deposit</button>
+  </div>
+
+  <div class="card">
+    <h2>Transfer to Futures</h2>
+    <input id="transferAmount" type="number" placeholder="Amount">
+    <button onclick="transfer()">Transfer</button>
+  </div>
+
+  <div class="card">
+    <h2>Trade</h2>
+
+    <select id="pair">
+      <option value="BTCUSDT">BTC/USDT</option>
+      <option value="ETHUSDT">ETH/USDT</option>
+    </select>
+
+    <div class="toggle">
+      <button class="long" onclick="setSide('long')">LONG</button>
+      <button class="short" onclick="setSide('short')">SHORT</button>
+    </div>
+
+    <select id="leverage">
+      <option value="2">2x</option>
+      <option value="5">5x</option>
+      <option value="10">10x</option>
+    </select>
+
+    <input id="amount" type="number" placeholder="Amount (USDT)">
+    <button onclick="openTrade()">Open Trade</button>
+
+    <p id="positionInfo"></p>
+    <button onclick="closeTrade()">Close Trade</button>
+  </div>
+
+  <div class="card">
+    <h2>Chart</h2>
+    <canvas id="chart" width="360" height="180"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>Trade History</h2>
+    <ul id="history"></ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
