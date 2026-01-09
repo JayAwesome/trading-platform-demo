@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spot Trading</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html">⬅ Home</a>
+</header>
+
+<div class="layout">
+
+  <!-- Chart -->
+  <div class="chart">
+    <div id="tv"></div>
+  </div>
+
+  <!-- Order Book -->
+  <div class="card orderbook">
+    <h3>Order Book</h3>
+    <div id="sellBook"></div>
+    <hr>
+    <div id="buyBook"></div>
+  </div>
+
+  <!-- Trade Panel -->
+  <div class="card">
+    <h3>Spot Trade</h3>
+
+    <div class="tabs">
+      <button class="active" onclick="setType('market', this)">Market</button>
+      <button onclick="setType('limit', this)">Limit</button>
+      <button onclick="setType('stop', this)">Stop</button>
+    </div>
+
+    <input id="price" placeholder="Price">
+    <input id="amount" placeholder="Amount">
+
+    <button class="long" onclick="spotOrder('buy')">Buy</button>
+    <button class="short" onclick="spotOrder('sell')">Sell</button>
+  </div>
+
+</div>
+
+<!-- Trade History -->
+<div class="card history">
+  <h3>Trade History</h3>
+  <table>
+    <thead>
+      <tr><th>Price</th><th>Amount</th><th>Side</th></tr>
+    </thead>
+    <tbody id="history"></tbody>
+  </table>
+</div>
+
+<script src="js/app.js"></script>
+<script src="https://s3.tradingview.com/tv.js"></script>
+<script>
+new TradingView.widget({
+  container_id: "tv",
+  symbol: "BTCUSDT",
+  interval: "15",
+  theme: "dark",
+  width: "100%",
+  height: 400
+});
+</script>
+</body>
+</html>
